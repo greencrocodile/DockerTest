@@ -1,0 +1,17 @@
+{
+    "log": {
+        "file": true,
+        "console": true,
+        "error_path": "/logs",
+        "info_path": "/logs",
+        "error_period": "day",
+        "info_period": "day",
+        "error_max_files": 0,
+        "info_max_files": 0
+    },
+    "options":{
+        "mdm_addr" : "http://mdm-storage.pppur.test.spb/mdm/rest/",
+        "first_date": "2021-05-18T00:00:00",
+        "second_date": "2021-05-18T23:59:59"
+    }
+}
