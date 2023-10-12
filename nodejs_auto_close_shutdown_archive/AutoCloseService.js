@@ -58,7 +58,7 @@ class AutoCloseService {
         this.logger.log(dateFrom, dateTill);
 
         if (dateFrom>=dateTill) {
-            this.logger.error(`Начальная дата ${this.config.first_date} должна быть меньше коннечной даты ${this.config.second_date}`);
+            this.logger.error(`Начальная дата ${this.config.first_date} должна быть меньше конечной даты ${this.config.second_date}`);
         } else {
             let currentDateFrom = dateFrom;
             let currentDateTill;
@@ -139,12 +139,12 @@ class AutoCloseService {
 
                     // 5.Обновить объект отключения и объекты, связанные с отключением (архивная БД).
                     // 5.1.Обновить объект отключения.
-                    await this.mdmExchange.updateEntity(
-                        discon.Code, 
-                        'АрхивноеСообщение', 
-                        {"ПлановыйСрокИсполнения": disconDate.toISOString().substring(0, 19)}, 
-                        {}
-                    );
+                    // await this.mdmExchange.updateEntity(
+                    //     discon.Code, 
+                    //     'АрхивноеСообщение', 
+                    //     {"ПлановыйСрокИсполнения": disconDate.toISOString().substring(0, 19)}, 
+                    //     {}
+                    // );
 
                     // 5.2.Обновить объекты, связанные с отключением.
                     // 5.2.1.Запросить объекты, связанные с отключением (объекты класса АрхивныеОбъектыСвязанныеСОтключением) по условию:
@@ -166,12 +166,12 @@ class AutoCloseService {
 
                     for(let ref of referenceObjects){
                         // 5.2.2.Обновить найденные объекты, связанные с отключением.
-                        await this.mdmExchange.updateEntity(
-                            ref.Code, 
-                            ref.Type[0].TypeId, 
-                            {"ПлановыйСрокИсполнения": disconDate.toISOString().substring(0, 19)}, 
-                            {}
-                        );
+                        // await this.mdmExchange.updateEntity(
+                        //     ref.Code, 
+                        //     ref.Type[0].TypeId, 
+                        //     {"ПлановыйСрокИсполнения": disconDate.toISOString().substring(0, 19)}, 
+                        //     {}
+                        // );
                     }
                 }
                 if (currentDateTill === dateTill){

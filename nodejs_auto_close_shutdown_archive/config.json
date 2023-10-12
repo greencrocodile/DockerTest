@@ -2,8 +2,8 @@
     "log": {
         "file": true,
         "console": true,
-        "error_path": "/logs",
-        "info_path": "/logs",
+        "error_path": "./logs",
+        "info_path": "./logs",
         "error_period": "day",
         "info_period": "day",
         "error_max_files": 0,

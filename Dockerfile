@@ -1,29 +1,24 @@
 FROM node:16.20.1
 
-COPY /nodejs_auto_close_shutdown_archive /nodejs_auto_close_shutdown_archive 
+COPY nodejs_auto_close_shutdown_archive /nodejs_auto_close_shutdown_archive 
+
+COPY ssh/config /root/.ssh/config
+
+COPY git_ivasiliev /root/.ssh/git_ivasiliev
+
+RUN ssh-keyscan -H git.fortus.pro >> ~/.ssh/known_hosts
+
+# RUN ssh -Tv git.fortus.pro
 
 WORKDIR /nodejs_auto_close_shutdown_archive 
 
-# RUN eval `ssh-agent`
+RUN npm ci
 
-# RUN ssh-add /git_ivasiliev
+RUN rm -rf ~/.ssh
 
-# RUN npm update
+CMD ["npm", "start" ]
 
-CMD ["node", "service.js" ]
-
-# RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
-
-# WORKDIR /home/node/app
-
-# COPY package*.json ./
-
-# USER node
-
-# RUN npm install
-
-# COPY --chown=node:node . .
- 
-# EXPOSE 8080
-
-# CMD [ "node", "app.js" ]
+#docker build --no-cache -t myproject:latest .
+#docker build -t myproject:latest .
+#docker run -d --name myproject myproject:latest
+#docker run -d -v ./logs:/nodejs_auto_close_shutdown_archive/logs --name myproject myproject:latest

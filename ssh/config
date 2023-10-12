@@ -1,0 +1,4 @@
+Host git.fortus.pro
+    HostName git.fortus.pro
+    User git
+    IdentityFile ~/.ssh/git_ivasiliev
