@@ -1,6 +1,6 @@
 const MDMExchange = require('@fortus/mdmexchange/MDMExchange');
 const lodash = require('lodash');
-const uuid = require('uuid');
+// const uuid = require('uuid');
 const attributesMap = [
     { attributeId: `ВремяЗакрытияОтключенияВЧасах`, attrField: 'Value', objField: 'hours', type: 'string' },
     { attributeId: `ОтноситсяККлассу`, attrField: 'Value', objField: 'classRelated', type: 'string' },
@@ -54,6 +54,8 @@ class AutoCloseService {
 
         let dateFrom = new Date(this.config.first_date);
         let dateTill = new Date(this.config.second_date);
+
+        this.logger.log(dateFrom, dateTill);
 
         if (dateFrom>=dateTill) {
             this.logger.error(`Начальная дата ${this.config.first_date} должна быть меньше коннечной даты ${this.config.second_date}`);
