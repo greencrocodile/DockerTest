@@ -1,16 +1,16 @@
 FROM node:16.20.1
 
-COPY nodejs_auto_close_shutdown_archive /nodejs_auto_close_shutdown_archive 
+COPY app /app 
 
 COPY ssh/config /root/.ssh/config
 
-COPY git_ivasiliev /root/.ssh/git_ivasiliev
+COPY git_ssh /root/.ssh/git_ssh
 
 RUN ssh-keyscan -H git.fortus.pro >> ~/.ssh/known_hosts
 
 # RUN ssh -Tv git.fortus.pro
 
-WORKDIR /nodejs_auto_close_shutdown_archive 
+WORKDIR /app 
 
 RUN npm ci
 

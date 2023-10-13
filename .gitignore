@@ -1,2 +1,5 @@
 nodejs_auto_close_shutdown_archive/node_modules/
 git_ivasiliev
+.vscode/launch.json
+app/logs/
+git_ssh

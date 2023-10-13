@@ -1,7 +1,7 @@
 {
     "log": {
         "file": true,
-        "console": true,
+        "console": false,
         "error_path": "./logs",
         "info_path": "./logs",
         "error_period": "day",
