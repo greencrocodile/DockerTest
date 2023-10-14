@@ -3,3 +3,4 @@ git_ivasiliev
 .vscode/launch.json
 app/logs/
 git_ssh
+app/node_modules/
